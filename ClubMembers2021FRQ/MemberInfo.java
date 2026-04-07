@@ -43,10 +43,13 @@ public class MemberInfo
         return gradYear;
 
    }
-   public boolean equal(MemberInfo other){
-        if(other.getName() == name&& other.getGrad()== gradYear)return true;
-        else return false;
-   }
+  
+        public boolean equals(Object obj){
+        if(!(obj instanceof MemberInfo)) return false;
+        MemberInfo other = (MemberInfo) obj;
+        return other.getName().equals(name) && other.getGrad() == gradYear;
+        }
+
 
     public String toString()
     {
