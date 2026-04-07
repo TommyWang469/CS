@@ -12,6 +12,10 @@ public class MemberInfo
     public MemberInfo(String name, int gradYear, boolean hasGoodStanding) 
     {
         //TODO: Complete the constructor
+        this.name = name;
+        this.gradYear = gradYear;
+        this.hasGoodStanding = hasGoodStanding;
+
     }
 
     /**
@@ -20,7 +24,7 @@ public class MemberInfo
      */
     public boolean inGoodStanding() 
     {
-        return false; //FIX THIS
+        return hasGoodStanding; //FIX THIS
     }
 
     /*
@@ -31,6 +35,18 @@ public class MemberInfo
      *       Be sure your capitalization and spelling are correct!
      * 
     */
+   public String getName(){
+        return name;
+
+   }
+   public int getGrad(){
+        return gradYear;
+
+   }
+   public boolean equal(MemberInfo other){
+        if(other.getName() == name&& other.getGrad()== gradYear)return true;
+        else return false;
+   }
 
     public String toString()
     {
