@@ -39,16 +39,16 @@ public class MemberInfo
         return name;
 
    }
-   public int getGrad(){
+   public int getGradYear(){
         return gradYear;
 
    }
   
-        public boolean equals(Object obj){
+public boolean equals(Object obj){
         if(!(obj instanceof MemberInfo)) return false;
         MemberInfo other = (MemberInfo) obj;
-        return other.getName().equals(name) && other.getGrad() == gradYear;
-        }
+        return other.getName().equals(name) && other.getGradYear() == gradYear;
+}
 
 
     public String toString()

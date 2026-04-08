@@ -7,6 +7,7 @@ public class ClubMembers
     public ClubMembers(ArrayList<MemberInfo> memberList)
     {
         //TODO: Complete the constructor
+        this.memberList = memberList;
     }
     
     /**
@@ -19,7 +20,24 @@ public class ClubMembers
     public boolean insertSorted(MemberInfo member)
     {
         //TODO: Complete the method
-        return false; //FIX THIS
+        int x = memberList.size();
+        int k=0;
+        while(k<x){
+            if(memberList.get(k).equals(member)) return false;
+            k++;
+        }
+        int i = 0;
+        while(i<x){
+            if(memberList.get(i).getName().compareTo(member.getName())>0){
+                memberList.add(i,member);
+                return true;
+            }
+            i++;
+         }
+        memberList.add(x,member);
+        return true;
+
+        
     }
     
     /**
@@ -31,7 +49,10 @@ public class ClubMembers
      */
     public void addMembers(String[] names, int gradYear)
     {
-        //TODO: Complete the method
+        for (String name : names)
+        {
+            insertSorted(new MemberInfo(name, gradYear, true));
+        }
     }
 
     /**
@@ -40,8 +61,23 @@ public class ClubMembers
      */
     public ArrayList<MemberInfo> removeMembers(int year)
     {
-        //TODO: Complete the method
-        return null; //FIX THIS
+        ArrayList<MemberInfo> graduated = new ArrayList<MemberInfo>();
+        int i = 0;
+        while (i < memberList.size())
+        {
+            MemberInfo member = memberList.get(i);
+            if (member.getGradYear() <= year)
+            {
+                if (member.inGoodStanding())
+                {
+                    graduated.add(member);
+                }
+                memberList.remove(i);
+            }
+            else i++;
+            
+        }
+        return graduated;
     }   
 
     /**
